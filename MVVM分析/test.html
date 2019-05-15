@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src='mvvm.js'></script>
+  <script src='compile.js'></script>
+  <script src='observer.js'></script>
+  <script src='watcher.js'></script>
+</head>
+<body>
+  <div id="app">
+    {{msg}}
+    <input type="text" v-model='msg'>
+    <p v-text='msg'></p>
+    <p v-html='msg2'></p>
+    <input type="button" value = '+' v-on:click='add'>
+  </div>
+  <script>
+    var vm = new MVVM({
+      el:'#app',
+      data:{
+        msg:111,
+        msg2: '<a href="www.baidu.com">baidu</a>'
+      },
+      methods:{
+        add(){
+          this.msg +='---'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
